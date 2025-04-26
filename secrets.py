@@ -17,9 +17,10 @@ def get_secret(secret_name, region_name="us-east-1"):
         return json.loads(secret)
     else:
         # Handle if secret is binary
-        decoded_binary_secret = base64.b64decode(response["SecretBinary"])
+        decoded_binary_secret = base64.b64decode(response["SecretBinary"]) # type: ignore
         return json.loads(decoded_binary_secret)
 
 # Example usage
-secrets = get_secret("swarm/CeliacCity")
+secrets = get_secret("swarm/api_key")
 print(secrets["api_key"])
+ # type: ignore
