@@ -1,6 +1,11 @@
 # swarm
 Using the Swarm Public API 
 
-First step is to clone and commit from VS Code 
+python command to start is
+python3 searchplaces.py
 
-Second commit to follow
+Swarm API key stored in AWS account. Secret stored in
+swarm/api_key
+
+Location is based on current location.
+
