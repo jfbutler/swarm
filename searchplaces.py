@@ -61,8 +61,29 @@ def format_address(location):
     ]
     return ", ".join(part for part in parts if part)
 
-latitude = 30.085136
-longitude = -95.425186
+
+def get_my_location():
+    try:
+        response = requests.get("https://ipinfo.io/json")
+        data = response.json()
+        loc = data.get("loc")  # e.g., "53.344,-6.267"
+        city = data.get("city")
+        region = data.get("region")
+        country = data.get("country")
+        address = f"{city}, {region}, {country}"
+
+        if loc:
+            lat, lon = map(float, loc.split(","))
+            return lat, lon, address
+    except Exception as e:
+        print("Error getting location:", e)
+    return None, None, "Unknown Location"
+
+
+latitude, longitude, my_address = get_my_location()
+if not latitude:
+    print("Could not determine your location.")
+    exit()
 
 # Example usage
 secrets = get_secret("swarm/api_key")
@@ -70,7 +91,7 @@ swarm_api_key = secrets["api_key"]
 
 restaurants = search_gluten_free_restaurants(latitude, longitude)
 
-print("\nNearby Gluten-Free Restaurants:")
+print(f"\nNearby Gluten-Free Restaurants near {my_address}:\n")
 for r in restaurants:
     #print("- {} ({})".format(r['name'], r['address']))
     print("- " + r['name'] + " - " + r['address'])
