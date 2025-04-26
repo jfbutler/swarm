@@ -1,5 +1,0 @@
-streamlit
-boto3
-pandas
-pydeck
-requests
