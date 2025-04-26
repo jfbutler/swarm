@@ -7,5 +7,4 @@ python3 searchplaces.py
 Swarm API key stored in AWS account. Secret stored in
 swarm/api_key
 
-Location is based on current location.
-
+Location is based on current location from https://ipinfo.io
