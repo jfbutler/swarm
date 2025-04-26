@@ -1,5 +1,5 @@
 # swarm
-Using the Swarm Public API 
+Using the Swarm Public API https://api.foursquare.com/v3/places/search
 
 python command to start is
 python3 searchplaces.py
