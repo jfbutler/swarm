@@ -21,5 +21,5 @@ def get_secret(secret_name, region_name="us-east-1"):
         return json.loads(decoded_binary_secret)
 
 # Example usage
-secrets = get_secret("MyApp/APIKey")
+secrets = get_secret("swarm/CeliacCity")
 print(secrets["api_key"])
